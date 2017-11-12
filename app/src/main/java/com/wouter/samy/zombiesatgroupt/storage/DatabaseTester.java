@@ -1,5 +1,6 @@
 package com.wouter.samy.zombiesatgroupt.storage;
 
+import static junit.framework.Assert.assertNotNull;
 import static org.junit.Assert.*;
 
 import org.junit.Before;

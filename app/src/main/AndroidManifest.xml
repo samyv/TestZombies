@@ -17,9 +17,13 @@
             </intent-filter>
         </activity>
         <activity android:name=".Play" />
-        <activity
-            android:name=".Settings"
-            android:label="@string/title_activity_settings" />
+        <activity android:name=".Database"
+            android:parentActivityName=".MainActivity" >
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
         <activity
             android:name=".SettingsApp"
             android:label="@string/title_activity_settings_app" />
