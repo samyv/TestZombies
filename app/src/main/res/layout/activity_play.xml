@@ -8,7 +8,7 @@
     tools:context="com.wouter.samy.zombiesatgroupt.Play">
 
     <Button
-        android:id="@+id/Register"
+        android:id="@+id/RegisterFailed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="64dp"
@@ -21,13 +21,13 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/Login"
+        android:id="@+id/LoginFailed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="64dp"
         android:onClick="loginButton"
         android:text="Login"
-        app:layout_constraintBottom_toTopOf="@+id/Register"
+        app:layout_constraintBottom_toTopOf="@+id/RegisterFailed"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -83,9 +83,20 @@
         android:inputType="textPassword"
         android:textColor="@color/white"
         android:textColorHint="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/Login"
+        app:layout_constraintBottom_toTopOf="@+id/LoginFailed"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/username" />
+
+    <TextView
+        android:id="@+id/wrongMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:textColor="@android:color/holo_red_dark"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Wrong!" />
 
 </android.support.constraint.ConstraintLayout>

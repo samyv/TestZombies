@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void playButton(View view) {
-       startActivity(new Intent(this, Database.class));
+       startActivity(new Intent(this, Play.class));
     }
 
     public void settingButton(View view) {

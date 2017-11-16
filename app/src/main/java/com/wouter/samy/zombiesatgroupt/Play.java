@@ -1,5 +1,8 @@
 package com.wouter.samy.zombiesatgroupt;
 
+
+
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -20,6 +23,11 @@ public class Play extends AppCompatActivity {
         TextView passwordTv = findViewById(R.id.password);
         String password = passwordTv.getText().toString();
 
+        /*if(Account.isvalid(username, password)){
+            startActivity(new Intent(this, GameStart.class));
+        } else {
+            startActivity(new Intent(this, FailedLogin.class));
+        }*/
 
     }
 
