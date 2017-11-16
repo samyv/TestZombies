@@ -1,5 +1,7 @@
 package com.wouter.samy.zombiesatgroupt;
 
+import com.wouter.samy.zombiesatgroupt.persistency.LoginMapper;
+
 /**
  * Created by wouter heerwegh on 16/11/2017.
  */
@@ -44,6 +46,6 @@ public class Account {
     }
 
     public static boolean isValid(String username, String password){
-        return false;
+        return LoginMapper.UNIQUEINSTANCE.loginAccount(username, password);
     }
 }
