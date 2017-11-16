@@ -1,4 +1,4 @@
-package com.wouter.samy.zombiesatgroupt.storage;
+package com.wouter.samy.zombiesatgroupt;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;

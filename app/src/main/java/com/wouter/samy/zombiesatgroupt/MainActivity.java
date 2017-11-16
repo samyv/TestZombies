@@ -8,9 +8,10 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 
-import com.wouter.samy.zombiesatgroupt.storage.Databasetest;
-
+import java.sql.Connection;
 import java.util.ArrayList;
+
+import static junit.framework.Assert.assertNotNull;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
-        Databasetest.UNIQUEINSTANCE.getConnection();
+        Connection con = Databasetest.UNIQUEINSTANCE.getConnection();
         ArrayList<Button> buttons = new ArrayList<>();
 
         buttons.add((Button) findViewById(R.id.Play));
@@ -31,8 +32,9 @@ public class MainActivity extends AppCompatActivity {
         for (Button bt : buttons) {
             bt.setTypeface(typeface);
         }
-        Databasetest.UNIQUEINSTANCE.getConnection();
-        
+
+
+
     }
 
     public void playButton(View view) {

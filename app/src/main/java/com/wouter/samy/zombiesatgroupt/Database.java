@@ -4,8 +4,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import com.wouter.samy.zombiesatgroupt.storage.Databasetest;
-
 import java.sql.Connection;
 
 public class Database extends AppCompatActivity {
