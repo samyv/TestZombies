@@ -17,7 +17,7 @@ import java.util.Properties;
 public enum Databasetest {
 
 	UNIQUEINSTANCE;
-	private static final String DATABASE_PROPERTIES_FILENAME = "C:/Users/wouter/Desktop/TestZombies/app/database.properties";
+	private static final String DATABASE_PROPERTIES_FILENAME = "app/database.properties";
 
 	private Connection con;
 	
@@ -33,7 +33,7 @@ public enum Databasetest {
 	 * @return The connection object to the MS-SQL server
 	 */
 	public Connection getConnection() {
-		return con;
+		return makeConnection(DATABASE_PROPERTIES_FILENAME);
 	}
 
 	/**
