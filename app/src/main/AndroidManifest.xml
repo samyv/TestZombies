@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.wouter.samy.zombiesatgroupt">
-    <uses-permission android:name="android.permission.INTERNET"
-        ></uses-permission>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -18,8 +19,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".Play" />
-        <activity android:name=".Database"
-            android:parentActivityName=".MainActivity" >
+        <activity
+            android:name=".Database"
+            android:parentActivityName=".MainActivity">
+
             <!-- The meta-data tag is required if you support API level 15 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -28,6 +31,8 @@
         <activity
             android:name=".SettingsApp"
             android:label="@string/title_activity_settings_app" />
+        <activity android:name=".GameStart" />
+        <activity android:name=".FailedLogin"></activity>
     </application>
 
 </manifest>

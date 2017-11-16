@@ -42,4 +42,8 @@ public class Account {
     public void setPass(String pass) {
         this.pass = pass;
     }
+
+    public static boolean isValid(String username, String password){
+        return false;
+    }
 }

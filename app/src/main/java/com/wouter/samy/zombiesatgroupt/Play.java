@@ -23,11 +23,11 @@ public class Play extends AppCompatActivity {
         TextView passwordTv = findViewById(R.id.password);
         String password = passwordTv.getText().toString();
 
-        /*if(Account.isvalid(username, password)){
+        if(Account.isValid(username, password)){
             startActivity(new Intent(this, GameStart.class));
         } else {
-            startActivity(new Intent(this, FailedLogin.class));
-        }*/
+            //findViewById(R.id.wrongMessage)
+        }
 
     }
 
