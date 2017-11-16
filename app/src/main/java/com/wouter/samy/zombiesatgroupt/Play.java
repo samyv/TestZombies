@@ -34,6 +34,6 @@ public class Play extends AppCompatActivity {
     }
 
     public void registerButton(View view){
-
+        startActivity(new Intent(this, Regiser.class));
     }
 }

@@ -123,7 +123,7 @@ public enum LoginMapper {
         }
         return account;
     }
-    private Boolean loginAccount(String name, String password) {
+    public Boolean loginAccount(String name, String password) {
         Account account = getAccountByName(name);
         if (password == account.getPass()){
             return true;
