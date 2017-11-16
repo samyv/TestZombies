@@ -31,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
         for (Button bt : buttons) {
             bt.setTypeface(typeface);
         }
+        Databasetest.UNIQUEINSTANCE.getConnection();
+        
     }
 
     public void playButton(View view) {
