@@ -26,7 +26,9 @@ public class Play extends AppCompatActivity {
         if(Account.isValid(username, password)){
             startActivity(new Intent(this, GameStart.class));
         } else {
-            //findViewById(R.id.wrongMessage)
+            TextView wrongmsg = findViewById(R.id.wrongMessage);
+            wrongmsg.setText("Wrong!");
+
         }
 
     }
