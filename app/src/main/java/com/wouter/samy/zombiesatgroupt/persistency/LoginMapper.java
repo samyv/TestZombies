@@ -40,7 +40,7 @@ public enum LoginMapper {
     }
 
     public Account getAccountByName(Account account) {
-        String select = "SELECT id, name, pass FROM Accounts where name = ?";
+        String select = "SELECT id, name, password FROM Accounts where name = ?";
         Account account1 = null;
         try {
             PreparedStatement prepstat = Databasetest.UNIQUEINSTANCE.getConnection().prepareStatement(select);
@@ -52,7 +52,7 @@ public enum LoginMapper {
         return account1;
     }
     public Account getAccountByName(String name) {
-        String select = "SELECT id, name, pass FROM Accounts where name = ?";
+        String select = "SELECT id, name, password FROM Accounts where name = ?";
         Account account1 = null;
         try {
             PreparedStatement prepstat = Databasetest.UNIQUEINSTANCE.getConnection().prepareStatement(select);
@@ -69,7 +69,7 @@ public enum LoginMapper {
         int id = -1;
         Account account1 = getAccountByName(account);
         if(account1 == null) {
-            String sql = "INSERT INTO Accounts (id, name, pass) VALUES (?,?,?)";
+            String sql = "INSERT INTO Accounts (id, name, password) VALUES (?,?,?)";
             try (PreparedStatement pstmt = Databasetest.UNIQUEINSTANCE.getConnection().prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
                 pstmt.setInt(1, account.getId());
                 pstmt.setString(2, account.getName());
@@ -125,9 +125,10 @@ public enum LoginMapper {
     }
     public Boolean loginAccount(String name, String password) {
         Account account = getAccountByName(name);
-        if (password == account.getPass()){
+        if (password.equals(account.getPass())){
             return true;
+        } else {
+            return false;
         }
-        return false;
     }
 }

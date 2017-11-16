@@ -20,7 +20,7 @@ public class Play extends AppCompatActivity {
         TextView usernameTv = findViewById(R.id.username);
         String username = usernameTv.getText().toString();
 
-        TextView passwordTv = findViewById(R.id.password);
+        TextView passwordTv = findViewById(R.id.passwordagain);
         String password = passwordTv.getText().toString();
 
         if(Account.isValid(username, password)){
@@ -34,6 +34,6 @@ public class Play extends AppCompatActivity {
     }
 
     public void registerButton(View view){
-        startActivity(new Intent(this, Regiser.class));
+        startActivity(new Intent(this, Register.class));
     }
 }
