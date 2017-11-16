@@ -39,13 +39,25 @@ public enum LoginMapper {
         return account;
     }
 
-    public Account getAccountByNames(Account account) {
+    public Account getAccountByName(Account account) {
         String select = "SELECT id, name, pass FROM Accounts where name = ?";
         Account account1 = null;
         try {
             PreparedStatement prepstat = Databasetest.UNIQUEINSTANCE.getConnection().prepareStatement(select);
             prepstat.setString(1, account.getName());
-            account = queryAccount(prepstat);
+            account1 = queryAccount(prepstat);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return account1;
+    }
+    public Account getAccountByName(String name) {
+        String select = "SELECT id, name, pass FROM Accounts where name = ?";
+        Account account1 = null;
+        try {
+            PreparedStatement prepstat = Databasetest.UNIQUEINSTANCE.getConnection().prepareStatement(select);
+            prepstat.setString(1, name);
+            account1 = queryAccount(prepstat);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -54,9 +66,9 @@ public enum LoginMapper {
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public int createAccount(Account account) {
-        Account account1 = getAccountByNames(account);
+        int id = -1;
+        Account account1 = getAccountByName(account);
         if(account1 == null) {
-            int id = -1;
             String sql = "INSERT INTO Accounts (id, name, pass) VALUES (?,?,?)";
             try (PreparedStatement pstmt = Databasetest.UNIQUEINSTANCE.getConnection().prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
                 pstmt.setInt(1, account.getId());
@@ -75,6 +87,10 @@ public enum LoginMapper {
             } catch (SQLException e) {
                 e.printStackTrace();
             }
+        } else {
+
+            id = account1.getId();
+        }
         return id;
 
     }
@@ -85,11 +101,10 @@ public enum LoginMapper {
         try {
             rs = prepstat.executeQuery();
             if (rs.next()) {
-                int id = rs.getInt("PersonID");
-                String name = rs.getString("Name");
-                String firstname = rs.getString("firstname");
-                Date birthdate = rs.getDate("birthdate");
-                person = new Person(id, name, firstname, new java.sql.Date(birthdate.getTime()).toLocalDate());
+                int id = rs.getInt("id");
+                String name = rs.getString("name");
+                String password = rs.getString("password");
+                account = new Account(id, name, password);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -106,6 +121,13 @@ public enum LoginMapper {
             }
 
         }
-        return person;
+        return account;
+    }
+    private Boolean loginAccount(String name, String password) {
+        Account account = getAccountByName(name);
+        if (password == account.getPass()){
+            return true;
+        }
+        return false;
     }
 }
