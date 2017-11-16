@@ -1,5 +1,7 @@
 package com.wouter.samy.zombiesatgroupt;
 
+import android.os.StrictMode;
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -8,6 +10,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
+import android.os.StrictMode;
 
 /**
  * Singleton class for database connection
@@ -15,7 +18,6 @@ import java.util.Properties;
  *
  */
 public enum Databasetest {
-
 	UNIQUEINSTANCE;
 	private static final String DATABASE_PROPERTIES_FILENAME = "app/database.properties";
 
@@ -25,7 +27,7 @@ public enum Databasetest {
 	 * Private constructor for Singleton design pattern
 	 */
 	private Databasetest() {
-		con = makeConnection(DATABASE_PROPERTIES_FILENAME);
+		con = makeConnection();
 	}
 	
 	/**
@@ -33,19 +35,18 @@ public enum Databasetest {
 	 * @return The connection object to the MS-SQL server
 	 */
 	public Connection getConnection() {
-		return makeConnection(DATABASE_PROPERTIES_FILENAME);
+		return makeConnection();
 	}
 
 	/**
 	 * Sets up a connection according to the connection properties given in the properties file
-	 * @param propertiesFilename Name of the file holding all the properties
+	 * @param //propertiesFilename Name of the file holding all the properties
 	 * @return The connection object
 	 */
-	private Connection makeConnection(String propertiesFilename) {
-		Properties properties = loadPropertiesFromFile(propertiesFilename);
+	private Connection makeConnection() {
 		
-		String driver = properties.getProperty("jdbc.driver");
-		String url = properties.getProperty("jdbc.url");
+		String driver = "com.mysql.jdbc.Driver";
+		String url = "jdbc:mysql://studev.groept.be/a17_sd510?user=a17_sd510&password=a17_sd510&useSSL=false";
 		
 		try {
 			Class.forName(driver);

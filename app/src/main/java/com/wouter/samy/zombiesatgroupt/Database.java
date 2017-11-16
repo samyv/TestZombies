@@ -16,6 +16,9 @@ public class Database extends AppCompatActivity {
         if(con != null){
             TextView textview = (TextView) findViewById(R.id.textView4);
             textview.setText("true");
+        } else {
+            TextView textview = (TextView) findViewById(R.id.textView4);
+            textview.setText("FUCK");
         }
     }
 }

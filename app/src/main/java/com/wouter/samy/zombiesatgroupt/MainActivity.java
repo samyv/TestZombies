@@ -2,6 +2,7 @@ package com.wouter.samy.zombiesatgroupt;
 
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -20,8 +21,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
         setContentView(R.layout.activity_main);
-        Connection con = Databasetest.UNIQUEINSTANCE.getConnection();
+        //Connection con = Databasetest.UNIQUEINSTANCE.getConnection();
         ArrayList<Button> buttons = new ArrayList<>();
 
         buttons.add((Button) findViewById(R.id.Play));
