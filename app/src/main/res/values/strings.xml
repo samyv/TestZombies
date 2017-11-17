@@ -76,4 +76,5 @@
     <string name="title_activity_settings_app">Settings</string>
     <string name="register">Register</string>
     <string name="login">Login</string>
+    <string name="usernamehint">username..</string>
 </resources>
