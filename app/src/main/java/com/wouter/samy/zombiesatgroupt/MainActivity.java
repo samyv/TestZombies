@@ -3,6 +3,7 @@ package com.wouter.samy.zombiesatgroupt;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.graphics.Typeface;
+import android.media.MediaPlayer;
 import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -22,19 +23,23 @@ public class MainActivity extends AppCompatActivity {
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
         setContentView(R.layout.activity_main);
+
+
+
+
+
         ArrayList<Button> buttons = new ArrayList<>();
 
         buttons.add((Button) findViewById(R.id.Play));
         buttons.add((Button) findViewById(R.id.Settings));
         buttons.add((Button) findViewById(R.id.Exit));
 
+        SoundManager.addSong(this, R.raw.mainmusic, "mainmusic");
+        SoundManager.playSong("mainmusic");
         Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/PressStart2P.ttf");
         for (Button bt : buttons) {
             bt.setTypeface(typeface);
         }
-
-
-
     }
 
     public void playButton(View view) {
@@ -42,7 +47,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void settingButton(View view) {
-
+        Intent intentSettings = new Intent(this, SettingsApp.class);
+        startActivity(intentSettings);
     }
 
     public void exitButton(View view) {
