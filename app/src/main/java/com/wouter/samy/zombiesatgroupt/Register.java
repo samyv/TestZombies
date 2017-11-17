@@ -1,15 +1,19 @@
 package com.wouter.samy.zombiesatgroupt;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.wouter.samy.zombiesatgroupt.persistency.LoginMapper;
+
+import java.util.ArrayList;
 
 public class Register extends AppCompatActivity {
 
@@ -17,6 +21,12 @@ public class Register extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+
+        Button register =(Button) findViewById(R.id.Register);
+        Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/PressStart2P.ttf");
+        register.setTypeface(typeface);
+
+
     }
 
    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
@@ -36,8 +46,7 @@ public class Register extends AppCompatActivity {
             Toast.makeText(getApplicationContext(),"Succeeded!", Toast.LENGTH_SHORT).show();
             startActivity(new Intent(this, Play.class));
         } else {
-            TextView passNotMatch = findViewById(R.id.PassNotMatchMsg);
-            passNotMatch.setText("Passwords don't match stupid.");
+            Toast.makeText(getApplicationContext(),"Passwords don't match!", Toast.LENGTH_SHORT).show();
 
         }
 

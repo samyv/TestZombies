@@ -10,6 +10,7 @@ public class Account {
     int id;
     String name;
     String pass;
+    int checkPoint;
     public Account(String name, String pass){
         this.name = name;
         this.pass = pass;
@@ -45,7 +46,24 @@ public class Account {
         this.pass = pass;
     }
 
+    public int getCheckPoint() {
+        return checkPoint;
+    }
+
+    public void setCheckPoint(int checkPoint) {
+        this.checkPoint = checkPoint;
+    }
+
     public static boolean isValid(String username, String password){
-        return LoginMapper.UNIQUEINSTANCE.loginAccount(username, password);
+        if(LoginMapper.UNIQUEINSTANCE.loginAccount(username, password)){
+            Account user = LoginMapper.UNIQUEINSTANCE.getAccountByName(username);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public static  Account getCurrentAccount(){
+        return null;
     }
 }
