@@ -46,6 +46,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void exitButton(View view) {
-
+        startActivity(new Intent(this, test.class));
     }
 }

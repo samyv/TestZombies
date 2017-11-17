@@ -33,7 +33,8 @@
             android:label="@string/title_activity_settings_app" />
         <activity android:name=".GameStart" />
         <activity android:name=".FailedLogin" />
-        <activity android:name=".Register"></activity>
+        <activity android:name=".Register" />
+        <activity android:name=".test"></activity>
     </application>
 
 </manifest>
